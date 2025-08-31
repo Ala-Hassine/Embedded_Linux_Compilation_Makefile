@@ -11,7 +11,8 @@ $(EXEC): $(LIB) main.o
 $(LIB): myFile.o
 	@echo "... Creating $(LIB) ..."
 	@$(CC) $< -shared -fPIC -Wl,-soname,$(LIB).1 -o $(LIB).1.0
-	@ln -s $(LIB).1.0 $(LIB)
+	@ln -s $(LIB).1.0 $(LIB).1
+	@ln -s $(LIB).1 $(LIB)
 
 %.o: %.c
 	@$(CC) -c $^
